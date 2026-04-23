@@ -89,7 +89,7 @@ npm run build:e2e && npm run test:e2e  # E2E 测试
 
 ## 相关项目
 
-![zread-cli](https://github.com/ZreadAI/zread_cli) 生成wiki也可以使用这个工具，本项目也有参考其输出格式
+[zread-cli](https://github.com/ZreadAI/zread_cli) 生成wiki也可以使用这个工具，本项目也有参考其输出格式
 
 
 ## License
