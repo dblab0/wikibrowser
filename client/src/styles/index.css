@@ -1,0 +1,217 @@
+@import './theme.css';
+@import './markdown.css';
+
+/* Streamdown styles for animations and code blocks */
+@import '../../../node_modules/streamdown/styles.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== Base Styles ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--content);
+  background-color: var(--surface);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  height: 100%;
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface-tertiary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--edge);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--content-tertiary);
+}
+
+/* ===== Selection ===== */
+::selection {
+  background-color: var(--accent);
+  color: #ffffff;
+}
+
+/* ===== Overlay / Modal Backdrop ===== */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  animation: fadeIn 0.15s ease;
+}
+
+.overlay-centered {
+  align-items: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal {
+  animation: slideUp 0.15s ease;
+}
+
+/* ===== Mermaid Container ===== */
+.mermaid-container {
+  margin-bottom: 1em;
+  padding: 16px;
+  border-radius: 10px;
+  background: var(--surface-secondary);
+  border: 1px solid var(--edge-light);
+  overflow-x: auto;
+  text-align: center;
+}
+
+/* Mermaid loading fallback */
+.mermaid-loading {
+  padding: 16px;
+  border-radius: 10px;
+  background: var(--surface-secondary);
+  border: 1px solid var(--edge-light);
+  text-align: center;
+  color: var(--content-secondary);
+  font-size: 14px;
+}
+
+/* AI Panel loading fallback */
+.ai-panel-loading {
+  width: 420px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface);
+  border-left: 1px solid var(--edge);
+  color: var(--content-secondary);
+  font-size: 14px;
+}
+
+/* Mermaid action buttons */
+.mermaid-action-btn {
+  padding: 6px;
+  background: var(--surface-secondary);
+  border: 1px solid var(--edge);
+  border-radius: 6px;
+  color: var(--content-tertiary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+.mermaid-action-btn:hover {
+  background: var(--surface-hover);
+  color: var(--content);
+}
+
+.mermaid-container svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Fix Chinese text truncation in Mermaid */
+.mermaid-container svg .node rect,
+.mermaid-container svg .node circle,
+.mermaid-container svg .node ellipse,
+.mermaid-container svg .node polygon,
+.mermaid-container svg .node path {
+  shape-rendering: geometricPrecision;
+}
+
+/* Remove black border from SVG root element */
+.mermaid-container svg > rect:first-child {
+  fill: transparent !important;
+  stroke: none !important;
+}
+
+.mermaid-container svg .node .label,
+.mermaid-container svg text {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 14px;
+}
+
+/* Ensure text doesn't overflow in foreignObject (for htmlLabels) */
+.mermaid-container svg .nodeLabel {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* Mermaid viewer modal styles */
+.mermaid-svg-wrapper svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.mermaid-error {
+  padding: 12px;
+  border-radius: 10px;
+  background: var(--danger-light);
+  color: var(--danger);
+  border: 1px solid var(--danger);
+  font-family: monospace;
+  font-size: 12px;
+  white-space: pre-wrap;
+}
+
+/* ===== Transition Helpers ===== */
+.transition-colors {
+  transition: background-color 0.15s ease, color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+/* ===== Loading Spinner ===== */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

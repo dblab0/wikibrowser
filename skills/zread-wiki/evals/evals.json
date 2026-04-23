@@ -1,0 +1,45 @@
+{
+  "skill_name": "zread-wiki",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "帮我给当前项目生成 wiki 文档",
+      "expected_output": "应该生成 .zread/wiki/versions/ 目录，包含 wiki.json 和多个 .md 文件。流程应先展示目录让用户确认，再并行生成页面。",
+      "files": [],
+      "expectations": [
+        "询问了并发数或使用默认值",
+        "生成了结构化目录并展示给用户确认",
+        "创建了 .zread/wiki/versions/ 下的时间戳目录",
+        "生成了 wiki.json 文件",
+        "生成了多个 .md wiki 页面文件",
+        "页面内容包含 Sources 引用",
+        "页面内容包含 Mermaid 图表"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "我想给 D:\\typescript_project\\my-app 这个项目生成一份知识库文档，并发开到 3",
+      "expected_output": "应使用指定路径 D:\\typescript_project\\my-app 作为目标项目，并发数设为 3。流程同上。",
+      "files": [],
+      "expectations": [
+        "使用了用户指定的项目路径",
+        "并发数设为 3",
+        "生成了结构化目录并展示给用户确认",
+        "创建了 .zread/wiki/versions/ 下的时间戳目录",
+        "生成了 wiki.json 文件"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "这个项目的文档太少了，能不能帮我补一下？让它更全面一些",
+      "expected_output": "应该识别用户意图是生成项目文档，触发 zread-wiki skill。应引导用户确认是否要生成 wiki 文档，然后按流程执行。",
+      "files": [],
+      "expectations": [
+        "正确识别了用户生成文档的意图",
+        "触发了 zread-wiki skill",
+        "生成了结构化目录",
+        "文档内容为中文"
+      ]
+    }
+  ]
+}

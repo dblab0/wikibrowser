@@ -1,0 +1,58 @@
+{
+  "name": "@dayinxisheng/wikibrowser",
+  "version": "1.26.2",
+  "license": "CC-BY-NC-SA-4.0",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "bin": {
+    "wikibrowser": "./bin/wikibrowser.js"
+  },
+  "files": [
+    "bin/",
+    "dist/"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "cd server && npm run dev",
+    "dev:client": "cd client && npm run dev",
+    "prebuild": "vitest run",
+    "build": "node scripts/build.js",
+    "build:e2e": "node scripts/build.js --no-obfuscate",
+    "start": "node bin/wikibrowser.js",
+    "test": "vitest",
+    "test:unit": "vitest run tests/unit",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:debug": "playwright test --debug",
+    "test:coverage": "vitest run --coverage",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.10.0",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "express-session": "^1.18.0",
+    "glob": "^11.0.0",
+    "jieba-wasm": "^2.4.0",
+    "uuid": "^11.1.0",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.59.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
+    "concurrently": "^9.1.0",
+    "javascript-obfuscator": "^4.1.1",
+    "jsdom": "^29.0.2",
+    "typescript": "^5.7.0",
+    "vitest": "^3.1.0"
+  }
+}

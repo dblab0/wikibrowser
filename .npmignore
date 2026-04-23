@@ -1,0 +1,40 @@
+# 源码
+client/src/
+server/src/
+shared/
+
+# 开发配置
+tsconfig.json
+tsconfig.base.json
+client/tsconfig.json
+server/tsconfig.json
+vite.config.ts
+*.config.js
+!obfuscator.config.json
+
+# 测试
+tests/
+*.test.ts
+*.spec.ts
+
+# 开发文件
+.eslintrc
+.prettierrc
+*.log
+.git/
+.gitignore
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# 文档
+CHANGELOG.md
+CLAUDE.md
+README_zh.md
+docs/
+
+# 脚本
+scripts/

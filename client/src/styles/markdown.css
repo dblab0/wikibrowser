@@ -1,0 +1,214 @@
+/* client/src/styles/markdown.css */
+
+.markdown-body {
+  @apply text-[15px] leading-[1.7] text-content;
+}
+
+/* 标题 */
+.markdown-body h1 {
+  @apply text-[1.75em] font-bold mt-6 mb-2.5 pb-2.5 border-b border-edge;
+}
+.markdown-body h2 {
+  @apply text-[1.4em] font-semibold mt-5 mb-2 pb-2 border-b border-edge-light;
+}
+.markdown-body h3 {
+  @apply text-[1.2em] font-semibold mt-4 mb-1.5;
+}
+.markdown-body h4 {
+  @apply text-[1.05em] font-semibold mt-3 mb-1.5;
+}
+
+/* 段落 */
+.markdown-body p {
+  @apply mb-5 tracking-wide;
+}
+.markdown-body strong {
+  @apply font-semibold text-content;
+}
+
+/* 链接 */
+.markdown-body a {
+  @apply text-accent no-underline transition-colors duration-150;
+  border-bottom: 1px solid transparent;
+}
+.markdown-body a:hover {
+  border-bottom-color: var(--accent);
+}
+
+/* 列表 */
+.markdown-body ul,
+.markdown-body ol {
+  @apply mb-5 pl-7;
+}
+.markdown-body li {
+  @apply mb-1.5 pl-1;
+}
+.markdown-body li::marker {
+  @apply text-content-muted;
+}
+
+/* 引用块 */
+.markdown-body blockquote {
+  @apply my-6 py-3.5 px-4 rounded-r-lg bg-surface-tertiary border-l-[3px] border-l-accent;
+}
+.markdown-body blockquote p {
+  @apply mb-0 text-content-secondary not-italic;
+}
+
+/* 行内代码 */
+.markdown-body code {
+  @apply px-2 py-0.5 rounded-md bg-surface-tertiary text-content-secondary
+         text-[0.9em] font-mono border border-edge-light;
+}
+
+/* 代码块 */
+.markdown-body pre {
+  @apply my-3 rounded-xl text-[14px] leading-relaxed overflow-x-auto;
+}
+.markdown-body pre code {
+  @apply p-0 bg-transparent text-inherit border-none;
+}
+
+/* 表格 */
+.markdown-body table {
+  @apply w-full my-6 border-collapse rounded-lg overflow-hidden border border-edge;
+}
+.markdown-body th {
+  @apply px-4 py-3 bg-surface-tertiary text-content font-semibold text-[0.95em] text-left border border-edge;
+}
+.markdown-body td {
+  @apply px-4 py-3 text-[0.95em] border border-edge;
+}
+.markdown-body tr:hover td {
+  @apply bg-surface-hover;
+}
+
+/* 分割线 */
+.markdown-body hr {
+  @apply my-8 border-0 border-t border-edge;
+}
+
+/* 图片 */
+.markdown-body img {
+  @apply rounded-lg max-w-full my-4;
+}
+
+/* ===== Streamdown Code Block Overrides ===== */
+.markdown-body [data-streamdown="code-block"] {
+  margin: 8px 0 !important;
+  gap: 0px !important;
+  padding: 2px !important;
+  background-color: var(--surface-tertiary) !important;
+}
+
+.markdown-body [data-streamdown="code-block-header"] {
+  height: auto !important;
+  padding: 0 8px !important;
+  margin: 0 !important;
+}
+
+.markdown-body [data-streamdown="code-block-body"] {
+  padding: 0 10px !important;
+  margin: 0 !important;
+  border: none !important;
+  border-radius: 6px !important;
+  font-size: 14px !important;
+}
+
+.markdown-body [data-streamdown="code-block-body"] pre {
+  font-size: inherit !important;
+}
+
+.markdown-body [data-streamdown="code-block-body"] code {
+  font-size: inherit !important;
+}
+
+/* 行号字体缩小 */
+.markdown-body [data-streamdown="code-block-body"] code span::before {
+  font-size: 0.7em !important;
+}
+
+/* ===== AI Sidebar Code Block Overrides ===== */
+.ai-message-content [data-streamdown="code-block"] {
+  margin: 6px 0 !important;
+  gap: 0px !important;
+  padding: 2px !important;
+  background-color: var(--surface-tertiary) !important;
+  overflow: visible !important;
+  content-visibility: visible !important;
+  contain-intrinsic-size: none !important;
+}
+
+.ai-message-content [data-streamdown="code-block-header"] {
+  min-height: 22px !important;
+  padding: 2px 8px !important;
+  margin: 0 !important;
+}
+
+.ai-message-content [data-streamdown="code-block-body"] {
+  padding: 0 10px !important;
+  margin: 0 !important;
+  border: none !important;
+  border-radius: 6px !important;
+  font-size: 12px !important;
+  overflow-x: auto !important;
+}
+
+.ai-message-content [data-streamdown="code-block-body"] pre {
+  font-size: inherit !important;
+}
+
+.ai-message-content [data-streamdown="code-block-body"] code {
+  font-size: inherit !important;
+}
+
+/* AI 侧边栏行号字体缩小 */
+.ai-message-content [data-streamdown="code-block-body"] code span::before {
+  font-size: 0.7em !important;
+}
+
+/* ===== Edit Mode ===== */
+.markdown-editor {
+  @apply w-full flex-1 resize-none p-8 font-mono text-[14px] leading-[1.7]
+         bg-surface text-content border-none outline-none;
+}
+
+.editor-toolbar {
+  @apply sticky top-0 z-10 flex items-center justify-between
+         px-6 py-2.5 bg-surface border-b border-edge-light;
+}
+
+/* ===== Callout ===== */
+.markdown-body .callout {
+  @apply my-5 py-3 px-4 rounded-r-lg border-l-[3px] relative;
+}
+.markdown-body .callout:hover .callout-actions {
+  @apply opacity-100;
+}
+.markdown-body .callout-actions {
+  @apply absolute top-2 right-2 flex gap-1 opacity-0 transition-opacity duration-150;
+}
+.markdown-body .callout-body p {
+  @apply mb-0;
+}
+.markdown-body .callout-note    { @apply bg-accent-light border-l-accent; }
+.markdown-body .callout-tip     { @apply bg-success-light border-l-success; }
+.markdown-body .callout-warning { @apply bg-warning-light border-l-warning; }
+.markdown-body .callout-caution { @apply bg-danger-light border-l-danger; }
+.markdown-body .callout-important {
+  background: var(--callout-important-light);
+  border-left-color: var(--callout-important);
+}
+.markdown-body .callout-edit-form {
+  @apply my-5 p-3 rounded-lg bg-surface-secondary border border-edge-light;
+}
+
+/* ===== Floating Toolbar ===== */
+.floating-toolbar {
+  @apply flex items-center gap-1 px-2 py-1.5 rounded-lg
+         bg-surface-secondary shadow-lg border border-edge-light;
+}
+.floating-toolbar button {
+  @apply px-2.5 py-1 rounded-md text-xs font-medium
+         hover:bg-surface-hover transition-colors duration-100;
+}

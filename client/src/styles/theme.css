@@ -1,0 +1,98 @@
+/* ===== Light Theme (default) ===== */
+:root {
+  --surface: #faf8f2;
+  --surface-secondary: #fffdf7;
+  --surface-tertiary: #f2f0e6;
+  --surface-hover: #ebe8dd;
+
+  --content: #1a1815;
+  --content-secondary: #42403a;
+  --content-tertiary: #726e64;
+  --content-muted: #a8a498;
+  --text-muted: #a8a498;
+
+  --edge: #e5e2d8;
+  --edge-light: #efecdf;
+
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-light: #eef2ff;
+  --accent-text: #1e40af;
+
+  --success: #16a34a;
+  --success-light: #f0fdf4;
+  --warning: #ca8a04;
+  --warning-light: #fefce8;
+  --danger: #dc2626;
+  --danger-light: #fef2f2;
+
+  --callout-important: #7c3aed;
+  --callout-important-light: #f5f3ff;
+  --callout-important-text: #5b21b6;
+
+  --header-height: 56px;
+  --sidebar-width: clamp(200px, 17vw, 280px);
+  --toc-width: clamp(180px, 14vw, 240px);
+  --content-max-width: clamp(800px, 60vw, 880px);
+  --content-padding-x: clamp(16px, 3vw, 48px);
+  --content-padding-top: clamp(20px, 2.5vw, 32px);
+  --content-padding-bottom: clamp(40px, 4vw, 80px);
+
+  /* shadcn/ui design tokens (used by Streamdown) */
+  --background: #fffdf7;
+  --foreground: #1a1815;
+  --card: #fffdf7;
+  --card-foreground: #1a1815;
+  --muted: #f2f0e6;
+  --muted-foreground: #726e64;
+  --border: #e5e2d8;
+  --input: #e5e2d8;
+  --primary: #1a1815;
+  --primary-foreground: #fffdf7;
+  --radius: 0.625rem;
+}
+
+/* ===== Dark Theme ===== */
+[data-theme='dark'] {
+  --surface: #1c1a16;
+  --surface-secondary: #24221c;
+  --surface-tertiary: #2c2922;
+  --surface-hover: #38352c;
+
+  --content: #e8e5d8;
+  --content-secondary: #b5b1a3;
+  --content-tertiary: #8a8577;
+  --content-muted: #635f50;
+  --text-muted: #635f50;
+
+  --edge: #38352c;
+  --edge-light: #2c2922;
+
+  --accent: #5b8def;
+  --accent-hover: #4a7de0;
+  --accent-light: #1e293b;
+  --accent-text: #93bbfd;
+
+  --success: #22c55e;
+  --success-light: #14532d;
+  --warning: #eab308;
+  --warning-light: #713f12;
+  --danger: #ef4444;
+  --danger-light: #7f1d1d;
+
+  --callout-important: #a78bfa;
+  --callout-important-light: rgba(167, 139, 250, 0.1);
+  --callout-important-text: #c4b5fd;
+
+  /* shadcn/ui design tokens (used by Streamdown) */
+  --background: #24221c;
+  --foreground: #e8e5d8;
+  --card: #2c2922;
+  --card-foreground: #e8e5d8;
+  --muted: #2c2922;
+  --muted-foreground: #8a8577;
+  --border: #38352c;
+  --input: #38352c;
+  --primary: #e8e5d8;
+  --primary-foreground: #1c1a16;
+}

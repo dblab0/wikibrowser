@@ -1,0 +1,20 @@
+node_modules/
+dist/
+.vite/
+*.log
+.playwright-mcp/
+*.png
+*.mp4
+
+!images/*
+
+issue.txt
+
+.claude/*
+
+# shared 构建产物（build 脚本会回拷到此处供运行时使用）
+shared/**/*.js
+shared/**/*.d.ts
+shared/**/*.map
+
+test-results/

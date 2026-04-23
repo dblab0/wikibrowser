@@ -1,0 +1,40 @@
+{
+  "name": "wikibrowser-server",
+  "version": "1.5.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc && npm run clean:maps && npm run obfuscate",
+    "clean:maps": "node -e \"const fs=require('fs');const rm=p=>{try{fs.rmSync(p,{recursive:true,force:true})}catch(e){}};const d='dist';const walk=p=>fs.readdirSync(p,{withFileTypes:true}).flatMap(f=>f.isDirectory()?walk(p+'/'+f.name):p+'/'+f.name);const maps=walk(d).filter(f=>f.endsWith('.map')||f.endsWith('.d.ts'));maps.forEach(rm)\"",
+    "obfuscate": "javascript-obfuscator dist --output dist-obf --config obfuscator.config.json && node -e \"const fs=require('fs');const cp=(s,d)=>{if(fs.statSync(s).isDirectory()){fs.mkdirSync(d,{recursive:true});fs.readdirSync(s).forEach(f=>cp(s+'/'+f,d+'/'+f))}else{fs.copyFileSync(s,d)}};cp('dist-obf','dist')\" && node -e \"const fs=require('fs');fs.rmSync('dist-obf',{recursive:true,force:true})\"",
+    "start": "node dist/index.js",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.0.0",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "express-session": "^1.18.0",
+    "glob": "^11.0.0",
+    "jieba-wasm": "^2.4.0",
+    "uuid": "^11.1.0",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.12",
+    "@types/compression": "^1.7.5",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/express-session": "^1.18.0",
+    "@types/node": "^22.0.0",
+    "@types/uuid": "^10.0.0",
+    "@types/ws": "^8.5.10",
+    "javascript-obfuscator": "^4.1.1",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.1.0"
+  }
+}
